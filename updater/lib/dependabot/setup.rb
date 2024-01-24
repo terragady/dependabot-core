@@ -12,6 +12,8 @@ end
 
 require "dependabot/sentry"
 Raven.configure do |config|
+  config.release = ENV.fetch("DEPENDABOT_UPDATER_VERSION")
+
   config.logger = Dependabot.logger
   config.project_root = File.expand_path("../../..", __dir__)
 
